@@ -18,7 +18,7 @@ function deleteDigit(n) {
     if (!i) return +str.slice(0, str.length - 1);
     return Math.max(a, +(str.slice(0, i - 1) + str.slice(i, str.length)));
   }, 0);
-}
+};
 
 module.exports = {
   deleteDigit

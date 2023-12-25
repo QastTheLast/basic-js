@@ -32,9 +32,9 @@ function getDNSStats(domains) {
       prev = newEl;
       obj[newEl] = +!!obj[newEl] + 1;
     });
-  }
+  };
   return obj;
-}
+};
 
 module.exports = {
   getDNSStats

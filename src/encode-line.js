@@ -15,6 +15,10 @@ function encodeLine(/* str */) {
   // remove line with error and write your code here
 }
 
+function encodeLine(str) {
+  return str.replace(/(\w)\1+/g, (set) => `${set.length}${set[0]}`);
+};
+
 module.exports = {
   encodeLine
 };

@@ -21,11 +21,11 @@ function countCats(matrix) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (matrix[i][j] === '^^') {
         earsAmount++;
-      }
-    }
-  }
+      };
+    };
+  };
   return earsAmount;
-}
+};
 
 module.exports = {
   countCats

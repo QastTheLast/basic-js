@@ -24,8 +24,8 @@ function dateSample(sampleActivity) {
       typeof sampleActivity !== 'string') return false;
   let k = 0.693 / HALF_LIFE_PERIOD,
       t = Math.log(MODERN_ACTIVITY / +sampleActivity) / k;
-  return Math.ceil(t)
-}
+  return Math.ceil(t);
+};
 
 module.exports = {
   dateSample
