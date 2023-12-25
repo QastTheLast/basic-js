@@ -20,15 +20,35 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  encrypt() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
-  decrypt() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
-}
+  constructor(direction = true) {
+    this.direction = direction;
+  };
+
+  alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  n = this.alfabet.length;
+  encrypt(str, key, isEncrypt = true) {
+    if (!str || !key) throw new Error("Incorrect arguments!");
+    let index = 0;
+    const k = isEncrypt ? 1 : -1;
+    const arrKey = key.toUpperCase().split("");
+    const res = str
+      .toUpperCase()
+      .split("")
+      .map((char, i, ar) => {
+        if (this.alfabet.includes(char)) {
+          const offset = this.alfabet.indexOf(arrKey[index++ % key.length]);
+          return this.alfabet[
+            (this.alfabet.indexOf(char) + this.n + k * offset) % this.n
+          ];
+        };
+        return char;
+      });
+    return this.direction ? res.join("") : res.reverse().join("");
+  };
+  decrypt(str, key) {
+    return this.encrypt(str, key, false);
+  };
+};
 
 module.exports = {
   VigenereCipheringMachine
